@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/JoelCatarino/cris-condimentos-store/issues"
   },
-  "homepage": "https://github.com/JoelCatarino/cris-condimentos-store#readme"
+  "homepage": "https://github.com/JoelCatarino/cris-condimentos-store#readme",
+  "dependencies": {
+    "vue": "^2.6.14"
+  }
 }

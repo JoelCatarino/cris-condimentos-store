@@ -7,6 +7,7 @@
 Vue.config.devtools = true; // this line is to allow the vue devtools
 
 const eventBus = new Vue()
+
 Vue.component("product", {
   props: {
     premium: {
@@ -16,7 +17,6 @@ Vue.component("product", {
   },
 
   template: `
-  
       <div class="row">
         <div class="col-6 p-5">
           <div class="product">
@@ -49,6 +49,7 @@ Vue.component("product", {
             ></div>
 
             <button
+            id="sub"
               v-on:click="addToCart"
               :disabled="!inStock"
               :class="{disabledBtn: !inStock}"
@@ -61,7 +62,7 @@ Vue.component("product", {
         </div>
 
         <product-tabs :reviews="reviews"></product-tabs>
-
+        
       </div>
   `,
 
@@ -180,7 +181,7 @@ Vue.component("product-review", {
       </select>
 
       
-        <input class="btn" type="submit" value="Submit">
+        <input id="sub" class="btn" type="submit" value="Submit">
       
 
     </form>
@@ -228,7 +229,8 @@ Vue.component('product-tabs', {
   },
   
   template: `
-  <div>
+ <div class="container">
+  <div class="tab">
       <span class="tab" 
         :class="{ activeTab: selectedTab === tab }" 
         v-for="(tab, index) in tabs"
@@ -246,9 +248,11 @@ Vue.component('product-tabs', {
       </ul>
     </div>
 
-    <product-review v-show="selectedTab === 'Make a review'"></product-review>
+    <product-review :class="selectedTab === 'Make a review'">
+    </product-review>
 
   </div>
+ </div>
   `,
 
   data() {
@@ -270,9 +274,6 @@ const app = new Vue({
     // a lógica de add to cart
     updateCart(id) {
       this.cart.push(id);
-    },
-    removeCart(id) {
-      this.cart.remove(id);
     },
   },
 });
