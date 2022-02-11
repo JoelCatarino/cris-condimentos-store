@@ -6,7 +6,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", "Avenir", "Helvetica", "Arial", sans-serif;
-  background: rgb(182, 178, 178);
+  background: rgb(228, 226, 226);
   font-size: 18px;
 }
 
@@ -74,19 +74,29 @@ p {
   font-size: 30px;
 }
 
+
+
+
+
 /* SECTION #2 */
 
 
 
 
 .container {
-  height: 500px;
+  height: 700px;
   
 }
 
 .tab {
   display: flex;
-  
+  justify-content: center;
+}
+
+.tab-reviews {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .review-form {
@@ -166,16 +176,16 @@ input::placeholder {
 
 ul {
   padding: 0;
-  margin: 0;
+  margin-right: 20px;
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 0.2rem;
 }
 
 li {
-  background-color: #4e362b;
+  background-color: #f5d4c5;
   padding: 0.2rem 0.8rem;
   border-radius: 1rem;
   position: relative;
   list-style: none;
-  color: #c7c8ca;
+  color: #000000;
 }

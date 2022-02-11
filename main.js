@@ -144,6 +144,7 @@ Vue.component("product", {
 
 Vue.component("product-review", {
   template: `
+  
     <form class="review-form" @submit.prevent="onSubmit">
 
       <p class="error" v-if="errors.length">
@@ -229,30 +230,32 @@ Vue.component('product-tabs', {
   },
   
   template: `
- <div class="container">
-  <div class="tab">
-      <span class="tab" 
-        :class="{ activeTab: selectedTab === tab }" 
-        v-for="(tab, index) in tabs"
-        :key="index"
-        @click="selectedTab = tab">{{ tab }}</span>
-  
+  <div class="container">
+  <span class="tab" 
+    :class="{ activeTab: selectedTab === tab }" 
+    v-for="(tab, index) in tabs"
+    :key="index"
+    @click="selectedTab = tab">{{ tab }}</span>
+
+    
+  <div class="tab-reviews">
     <div v-show="selectedTab === 'Reviews'">
-      <p v-if="!reviews.length">There are no reviews yet.</p>
-      <ul v-else>
-        <li v-for="(review, index) in reviews" :key="index">
-          <p>{{ review.name }}</p>
-          <p>Rating: {{ review.rating }}</p>
-          <p>{{ review.review }}</p>
-        </li>
-      </ul>
-    </div>
+    <p v-if="!reviews.length" class="no-review">There are no reviews yet.</p>
+        <ul v-else>
+          <li v-for="(review, index) in reviews" :key="index">
+            <p>{{ review.name }}</p>
+            <p>Rating: {{ review.rating }}</p>
+            <p>{{ review.review }}</p>
+          </li>
+        </ul>
+  </div>
 
     <product-review :class="selectedTab === 'Make a review'">
     </product-review>
 
   </div>
  </div>
+ 
   `,
 
   data() {
